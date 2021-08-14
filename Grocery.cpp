@@ -172,7 +172,7 @@ int main()
 
         if (selection == 1)
         {
-            cout << "Selected 1";
+            CallProcedure("printItems");
         }
         if (selection == 2)
         {
@@ -180,9 +180,9 @@ int main()
         }
         if (selection == 3)
         {
-            cout << "Selected 3";
+            CallProcedure("Histogram");
         }
-        cout << "\033[2J\033[1;1H"; // Clear screen
+        // cout << "\033[2J\033[1;1H"; // Clear screen
         DisplayMenu();
         cin >> selection;
     }
