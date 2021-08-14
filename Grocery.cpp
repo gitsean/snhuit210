@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <cmath>
 #include <string>
+#include <iomanip> // std::setw
 
 using namespace std;
 
@@ -138,9 +139,53 @@ int callIntFunc(string proc, int param)
     return _PyLong_AsInt(presult);
 }
 
+/**
+ * Helper function to pad the menu
+ * Takes the string of the menu line
+*/
+void PrintPaddedLine(string line)
+{
+    cout << setw(42);
+    cout << line << endl;
+}
+
+/**
+ * Displays the menu
+*/
+void DisplayMenu()
+{
+    cout << endl;
+    PrintPaddedLine("*************************************");
+    PrintPaddedLine("* 1 - List of Purchased Items       *");
+    PrintPaddedLine("* 2 - Count an Item                 *");
+    PrintPaddedLine("* 3 - Display Chart of Items        *");
+    PrintPaddedLine("* 4 - Exit Program                  *");
+    PrintPaddedLine("************************************");
+}
+
 int main()
 {
     setenv("PYTHONPATH", ".", 1);
+    int selection = 0;
+    while (selection != 4)
+    {
+
+        if (selection == 1)
+        {
+            cout << "Selected 1";
+        }
+        if (selection == 2)
+        {
+            cout << "Selected 2";
+        }
+        if (selection == 3)
+        {
+            cout << "Selected 3";
+        }
+        cout << "\033[2J\033[1;1H"; // Clear screen
+        DisplayMenu();
+        cin >> selection;
+    }
     CallProcedure("printsomething");
     cout << callIntFunc("PrintMe", "House") << endl;
     cout << callIntFunc("SquareValue", 2);
