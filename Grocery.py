@@ -17,18 +17,24 @@ def SquareValue(v):
 
 def printItems():
     with open('Grocery.txt', "r") as file_object:
-        # read file content
         data = file_object.read()
-        # print file contents
         print(data)
 
 
-def Histogram():
+def counter(item):
+    test = item.lower()
+    matches = []
     with open('Grocery.txt', "r") as file_object:
-        # read file content
+        data = file_object.read().splitlines()
+        matches = [line for line in data if line.lower() == test]
+        count = len(matches)
+        return count
+
+
+def histogram():
+    with open('Grocery.txt', "r") as file_object:
         data = file_object.read().splitlines()
         items = {}
-        # print file contents
         for line in data:
             if line in items:
                 items[line] += 1

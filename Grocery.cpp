@@ -152,7 +152,7 @@ void PrintPaddedLine(string line)
 /**
  * Displays the menu
 */
-void DisplayMenu()
+void displayMenu()
 {
     cout << endl;
     PrintPaddedLine("*************************************");
@@ -161,6 +161,14 @@ void DisplayMenu()
     PrintPaddedLine("* 3 - Display Chart of Items        *");
     PrintPaddedLine("* 4 - Exit Program                  *");
     PrintPaddedLine("************************************");
+}
+
+void countItem()
+{
+    string item;
+    cout << "Enter item to count:" << endl;
+    cin >> item;
+    cout << "Found " << callIntFunc("counter", item) << " " << item << endl;
 }
 
 int main()
@@ -176,18 +184,14 @@ int main()
         }
         if (selection == 2)
         {
-            cout << "Selected 2";
+            countItem();
         }
         if (selection == 3)
         {
-            CallProcedure("Histogram");
+            CallProcedure("histogram");
         }
-        // cout << "\033[2J\033[1;1H"; // Clear screen
-        DisplayMenu();
+        displayMenu();
         cin >> selection;
     }
-    CallProcedure("printsomething");
-    cout << callIntFunc("PrintMe", "House") << endl;
-    cout << callIntFunc("SquareValue", 2);
     return 0;
 }
