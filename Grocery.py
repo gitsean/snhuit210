@@ -1,26 +1,25 @@
+"""
+Python portion of the Grocery program
+A number of functions that can be called to
+access Grocery.txt
+
+Author: Sean Reid
+Date: 8/14/2021
+
+"""
+
 import re
 import string
 
 
-def printsomething():
-    print("Hello from python!")
-
-
-def PrintMe(v):
-    print("You sent me: " + v)
-    return 100
-
-
-def SquareValue(v):
-    return v * v
-
-
+# Print all items in Grocery.txt
 def printItems():
     with open('Grocery.txt', "r") as file_object:
         data = file_object.read()
         print(data)
 
 
+# Count the occurences of an item in Groceries.txt
 def counter(item):
     test = item.lower()
     matches = []
@@ -31,6 +30,7 @@ def counter(item):
         return count
 
 
+# Display a histogram of the number of times each item occurs in Groceries.txt
 def histogram():
     with open('Grocery.txt', "r") as file_object:
         data = file_object.read().splitlines()

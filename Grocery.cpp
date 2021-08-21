@@ -1,3 +1,15 @@
+/**
+ * 
+ * Interactive program that will display a menu of options for a user to 
+ * view the items that have been purchased in store for a given day
+ * 
+ * The program uses a text list of items - Grocery.txt
+ * 
+ * Author: Sean Reid
+ * Date: 8/14/2021
+ * 
+ * **/
+
 #include <Python.h>
 #include <iostream>
 #include <stdio.h>
@@ -177,7 +189,11 @@ int main()
     int selection = 0;
     while (selection != 4)
     {
-
+        if (selection > 4 || selection < 1)
+        {
+            cout << " -----------------   !!!!!!!!!!!   ---------------------" << endl;
+            cout << "Please choose a number from 1 to 4 as shown in the menu." << endl;
+        }
         if (selection == 1)
         {
             CallProcedure("printItems");
